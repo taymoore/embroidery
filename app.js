@@ -12,3 +12,11 @@ switcher.addEventListener('click', function () {
     }
     console.log('current class name: ', className);
 });
+
+const load_image_button = document.getElementById('load_image');
+let image = document.getElementById('image')
+load_image_button.addEventListener('click', function () {
+    image.src = 'https://picsum.photos/200';
+    document.body.append(image);
+    console.log('image loaded');
+});
