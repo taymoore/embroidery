@@ -13,10 +13,15 @@ switcher.addEventListener('click', function () {
     console.log('current class name: ', className);
 });
 
-const load_image_button = document.getElementById('load_image');
-let image = document.getElementById('image')
-load_image_button.addEventListener('click', function () {
-    image.src = 'https://picsum.photos/200';
-    document.body.append(image);
-    console.log('image loaded');
-});
+let image = document.getElementById('image');
+function importImage() {
+    let input = document.createElement('input');
+    input.type = 'file';
+    input.accept = 'image/*';
+    input.onchange = _ => {
+        let file = input.files[0];
+        console.log(file);
+        image.src = URL.createObjectURL(file);
+    };
+    input.click();
+}
